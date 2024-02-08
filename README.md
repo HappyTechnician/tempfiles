@@ -11,47 +11,94 @@ The mount holes are representative of the Pi Zero and the full size pi 4 boards.
 	CONNECTION PINOUT:
 The Pi Hat Driver Modual_54302 has been designed primarily as a 3D printer Enclosure controller using the 
 24VDC power supply as the input voltage at the 2 wire terminal block.
-With a Raspberry Pi as a host Micro-Computer/System Controller operaKng Klipper as the Applicaton Package 
+With a Raspberry Pi as a host Micro-Computer/System Controller operating Klipper as the Applicaton Package 
 Interfaced with the 3D printer control board.
 The Klipper API allows the ability, through the ‘printer.cfg’ file, to use the GPIO pins from the 
 Raspberry Pi to communicate with the MCU through UART, and to collect data from sensors through I2C. 
+
+
 Also the use of output PWM signals to operate fans, lights, heaters, and relays. 
+
+
 This modual uses the Texas Instruments TPS54302 DC-DC switching step down converter.
 To supply 12 VDC @3 Amps of current capacity to drive the peripheral devices. 
+
+
 A TLP290-4 quad opto-isolator is used to isolate the GPIO pins from the output drive circuitry.
 AD4184 MosFets are used to ‘push’ the GPIO signal into a 12VDC connector.
-2 connectors have PWM output only and 2 have a third pin for fan tachometer or a feedback sensor input 
-direct to the GPIO header
+
+
+2 connectors have PWM output only, J8 and J9.
+
+2 have a third pin for fan tachometer or a feedback sensor input direct to the GPIO header, J6 an J7.
+
+
 It is advisable to use only the three pins of the UART connection TX,RX,and Ground. 
-Thus powering your Raspberry Pi with it's own supply. This will asure there is enough power to supply the
-Opto-isolator, tus keeping the printer MCU isolated from "bad" current draws.
+Thus powering your Raspberry Pi with it's own 'Power supply'. 
+
+This will asure there is enough power to supply the
+Opto-isolator circuitry, thus keeping the printer MCU isolated from "bad" current draws and reverse voltage spikes from motor run-on.
+
+
 The pinout order is as follows:
-Header connecton:
+
+
 Pins 1,3,5,7,9,11,13,15,17,19 are to the inside of the header connector,
+
+
 and pins 2,4,6,8,10,12,1,4,16,18,20 are to the outside of the header connector. 
-Pin designaKons are as follows: header pi / GPIO pin
+Pin designations are as follows: header pi / GPIO pin
 
 1 = 3.3VDC (I2c power) connected directly to I2C connector
+
 2 = 5VDC connected directly to pin 1 of UART connector (Caution** not advisable to use for power from MCU)
+
+
 3 = GPIO 2 (SDA-I2C) connected directly to pin 2 of I2C connector
+
+
 4 = 5VDC connected directly to header pin 2
+
+
 5 = GPIO 3 (SCL-I2C) connected directly to pin 3 of I2C connector
+
+
 6 = GPIO-GROUND connected directly to pin 2 of UART connector
-7 = GPIO 4 NOT CONNECTED = may be used for extra connecKons out of board.
+
+
+7 = GPIO 4 NOT CONNECTED = may be used for extra connecKons out of board
+
 8 = GPIO 14 (TX-UART) connected directly to pin 3 of UART connector
+
+
 9 = GPIO-GROUND connected directly to pin 4 of I2C connector
+
+
 10 = GPIO 15 (RX-UART) connected directly to pin 4 of UART connector
+
+
 11 = GPIO 17 (PWM-J9) connected through isolator to J9-2
+
+
 12 = GPIO 18 NOT CONNECTED = may be used for extra connecKons out of board.
+
 13 = GPIO 27 (PWM-J8) connected through isolator to J8-2
+
 14 = GPIO GROUND connected to ground for I2C UART Isolator
+
 15= GPIO 22 (PWM-J7) connected through Isolator to J7-2
-16 = GPIO 23 (TACH/SENS-J6) connected directly to J6-3 (CAUTION)
-17=3.3VDC NOTCONNECTED=maybeusedforextraconnecKonsoutofboard.
+
+16 = GPIO 23 (TACH/SENS-J6) connected directly to J6-3 (CAUTION do not connect to 12VC PWM pin)
+
+17=3.3VDC NOTCONNECTED=may be used for extra connections out of board.
+
 18 = GPIO 24 (TACH/SENS-J7) connected directly to J7-3 (CAUTION)
+
 19 = GPIO 10 (PWM-J6) connected through Isolator to J6-2
+
 20 = GPIO GROUND connected to ground for I2C UART Isolator
-***   WARNING   ****   CONNECTING PIN 3 OF ANY J6 OR J7  TO A 12 VOLT SORCE WILL KILL YOUR MCU ****** ABSOLUTLY
+
+***   WARNING   ****   CONNECTING PIN 3 OF J6 OR J7  TO A 12 VOLT SORCE WILL KILL YOUR MCU ****** ABSOLUTLY
 
 THIS BOARD WAS CREATED WITH THE IDEA OF CONSOLIDATING BUCK SUPPLIES AND MOSFET DRIVERES INTO ONE BOARD TO POWER AND PROVIDE PWM SOURCE FOR AN ENCLOSURE.  
 
