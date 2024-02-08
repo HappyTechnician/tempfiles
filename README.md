@@ -46,60 +46,85 @@ The pinout order is as follows:
 Pins 1,3,5,7,9,11,13,15,17,19 are to the inside of the header connector,
 
 
-and pins 2,4,6,8,10,12,1,4,16,18,20 are to the outside of the header connector. 
+and pins 2,4,6,8,10,12,1,4,16,18,20 are to the outside of the header connector.
+
+
 Pin designations are as follows: header pi / GPIO pin
+
 
 1 = 3.3VDC (I2c power) connected directly to I2C connector
 
+
 2 = 5VDC connected directly to pin 1 of UART connector (Caution** not advisable to use for power from MCU)
+
 
 
 3 = GPIO 2 (SDA-I2C) connected directly to pin 2 of I2C connector
 
 
+
 4 = 5VDC connected directly to header pin 2
+
 
 
 5 = GPIO 3 (SCL-I2C) connected directly to pin 3 of I2C connector
 
 
+
 6 = GPIO-GROUND connected directly to pin 2 of UART connector
+
 
 
 7 = GPIO 4 NOT CONNECTED = may be used for extra connecKons out of board
 
+
 8 = GPIO 14 (TX-UART) connected directly to pin 3 of UART connector
+
 
 
 9 = GPIO-GROUND connected directly to pin 4 of I2C connector
 
 
+
 10 = GPIO 15 (RX-UART) connected directly to pin 4 of UART connector
+
 
 
 11 = GPIO 17 (PWM-J9) connected through isolator to J9-2
 
 
+
 12 = GPIO 18 NOT CONNECTED = may be used for extra connecKons out of board.
+
 
 13 = GPIO 27 (PWM-J8) connected through isolator to J8-2
 
+
 14 = GPIO GROUND connected to ground for I2C UART Isolator
+
 
 15= GPIO 22 (PWM-J7) connected through Isolator to J7-2
 
+
 16 = GPIO 23 (TACH/SENS-J6) connected directly to J6-3 (CAUTION do not connect to 12VC PWM pin)
+
 
 17=3.3VDC NOTCONNECTED=may be used for extra connections out of board.
 
+
 18 = GPIO 24 (TACH/SENS-J7) connected directly to J7-3 (CAUTION)
+
 
 19 = GPIO 10 (PWM-J6) connected through Isolator to J6-2
 
+
 20 = GPIO GROUND connected to ground for I2C UART Isolator
+
 
 ***   WARNING   ****   CONNECTING PIN 3 OF J6 OR J7  TO A 12 VOLT SORCE WILL KILL YOUR MCU ****** ABSOLUTLY
 
+
 THIS BOARD WAS CREATED WITH THE IDEA OF CONSOLIDATING BUCK SUPPLIES AND MOSFET DRIVERES INTO ONE BOARD TO POWER AND PROVIDE PWM SOURCE FOR AN ENCLOSURE.  
+
 
 You may use it for any purpose you may need with a Raspberry Pi board, 40 pin header.
